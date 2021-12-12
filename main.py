@@ -16,12 +16,11 @@ def show_course_average_grade(course, cls):
     """
     all_grades = []
     for person in cls.list_of_all:
-        print(person.name)
         if course.title() in person.grades:
             all_grades += person.grades[course.title()]
         else:
             continue
-    print(round(mean(all_grades), 1))
+    print(f'Средния оценка по курсу "{course.title()}" среди всех {cls.__name__}s - {round(mean(all_grades), 1)}\n')
 
 
 
@@ -65,6 +64,7 @@ class Student(Person):
                 print(f'Средняя оценка {other.name} выше чем у {self.name} - {get_average_grade(other.grades)}')
             else:
                 print(f'{self.name} и {other.name} имеют одинаковую среднюю оценку - {get_average_grade(self.grades)}')
+            print()
         else:
             print('Ошибка')
             # return 'Ошибка'
@@ -148,11 +148,14 @@ hiroshi.grades['C++'] = [8, 7, 10]
 
 # Проверка функционала
 print(hiroshi)
+print()
 jake.rate_lecture(hiroshi, 'c++', 6)
 print(hiroshi)
+print()
 
 joel.rate_hw(jake, 'c++', 4)
 print(jake)
+print()
 
 hiroshi == jackie
 emily == jake
