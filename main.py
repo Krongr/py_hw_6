@@ -84,7 +84,7 @@ class Lecturer(Mentor):
         self.list_of_all.append(self)
 
     def __str__(self):
-        return f'Имя: {self.name}\nФамилия: {self.last_name}\nСредняя оценка за домашние задания: {get_average_grade(self.grades)}'
+        return f'Имя: {self.name}\nФамилия: {self.last_name}\nСредняя оценка за лекции: {get_average_grade(self.grades)}'
 
     def __eq__(self, other):
         if isinstance(other, Lecturer):
